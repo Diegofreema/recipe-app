@@ -14,4 +14,6 @@ export const colors = {
   dark: '#212121',
   background: '#fafafa',
   text: '#212121',
+  textGrey: '#C9C9C9',
+  yellow: '#ffac31',
 };
