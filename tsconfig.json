@@ -13,6 +13,8 @@
     "expo-env.d.ts",
     "constant.js",
     "app/home.jsx",
-    "components/ui/search-input.jsx"
+    "components/ui/search-input.jsx",
+    "config.js",
+    "hooks/use-fetch-data.js"
   ]
 }

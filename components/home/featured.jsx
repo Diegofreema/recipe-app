@@ -4,7 +4,7 @@ import { FeaturedCard } from './featured-card';
 export const Featured = ({ data }) => {
   return (
     <View style={styles.container}>
-      <CustomText text={'Featured'} style={styles.title} />
+      <CustomText text={'Featured Recipes'} style={styles.title} />
       <FlatList
         data={data}
         renderItem={({ item }) => <FeaturedCard item={item} />}

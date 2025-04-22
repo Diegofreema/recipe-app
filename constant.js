@@ -1,6 +1,6 @@
 export const colors = {
   lightGrey: '#eee',
-  darkGrey: '#333',
+  darkGrey: '#D9D9D9',
   grey: '#ccc',
   white: '#fff',
   black: '#000',
@@ -16,4 +16,5 @@ export const colors = {
   text: '#212121',
   textGrey: '#C9C9C9',
   yellow: '#ffac31',
+  green: '#129575',
 };

@@ -5,55 +5,19 @@ import { Wrapper } from '@/components/ui/wrapper';
 import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
+import { FilterRecipe } from '@/components/home/filter-recipe';
+import { apiKey } from '@/config';
+import { Loading } from '@/components/ui/loading';
+import { useFetchData } from '@/hooks/use-fetch-data';
 const HomeScreen = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
+  const { loading, data } = useFetchData();
   const onPress = () => {
     router.push('/search');
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      const url =
-        'https://tasty.p.rapidapi.com/recipes/list?from=0&size=5&tags=under_30_minutes';
-      const options = {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-key':
-            'e91e1b5272msh83bedc2f51c314fp188ccbjsn5d3bfe03e985',
-          'x-rapidapi-host': 'tasty.p.rapidapi.com',
-        },
-      };
-
-      try {
-        const response = await fetch(url, options);
-        const { results } = await response.json();
-        setData(results);
-      } catch (error) {
-        console.error(error);
-        throw new Error('Failed to fetch data');
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-
   if (loading) {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: 'white',
-        }}
-      >
-        <ActivityIndicator size="large" />
-      </View>
-    );
+    return <Loading />;
   }
 
   return (
@@ -62,6 +26,7 @@ const HomeScreen = () => {
         <HeaderTitle title="Home" showBtn={false} />
         <SearchInput search={false} onPress={onPress} />
         <Featured data={data} />
+        <FilterRecipe />
       </Wrapper>
     </View>
   );

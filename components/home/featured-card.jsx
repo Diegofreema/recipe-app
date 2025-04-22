@@ -29,7 +29,11 @@ export const FeaturedCard = ({ item }) => {
           {item.name}
         </Text>
 
-        <Image src={item.thumbnail_url} style={styles.img} />
+        <Image
+          src={item.thumbnail_url}
+          style={styles.img}
+          defaultSource={require('@/assets/images/food.png')}
+        />
       </View>
       <View style={{ flexDirection: 'row' }}>
         {Array(5)
