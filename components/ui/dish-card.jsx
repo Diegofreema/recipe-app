@@ -1,4 +1,5 @@
 import { colors } from '@/constant';
+import { useRouter } from 'expo-router';
 import {
   Dimensions,
   Image,
@@ -8,9 +9,17 @@ import {
   View,
 } from 'react-native';
 const { width } = Dimensions.get('window');
-export const DishCard = ({ item }) => {
+export const DishCard = ({ item, full }) => {
+  const router = useRouter();
+  const navigateToRecipe = () => {
+    router.push(`/${item.id}`);
+  };
   return (
-    <TouchableOpacity style={styles.card} activeOpacity={0.5}>
+    <TouchableOpacity
+      style={[styles.card, full && { flex: 1 }]}
+      activeOpacity={0.5}
+      onPress={navigateToRecipe}
+    >
       <Image
         src={item.thumbnail_url}
         style={styles.img}

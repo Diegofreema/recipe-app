@@ -8,12 +8,17 @@ import {
   View,
 } from 'react-native';
 
-export const SearchInput = ({ search, onPress }) => {
+export const SearchInput = ({ search, onPress, setValue, value }) => {
   if (search) {
     return (
       <View style={styles.container}>
         <AntDesign name="search1" size={20} color={colors.lightGrey} />
-        <TextInput style={styles.input} placeholder="Search recipe" />
+        <TextInput
+          style={styles.input}
+          placeholder="Search recipe"
+          value={value}
+          onChangeText={setValue}
+        />
       </View>
     );
   }

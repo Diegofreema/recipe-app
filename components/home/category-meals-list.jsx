@@ -10,16 +10,26 @@ import {
 } from 'react-native';
 import { DishCard } from '@/components/ui/dish-card';
 
-export const CategoryMealsList = ({ data }) => {
+export const CategoryMealsList = ({ data, numColumns }) => {
   return (
     <FlatList
       data={data}
-      renderItem={({ item }) => <DishCard item={item} />}
+      renderItem={({ item }) => (
+        <DishCard item={item} full={numColumns === 2} />
+      )}
       keyExtractor={(item) => item.id}
-      horizontal
-      contentContainerStyle={styles.container}
+      horizontal={numColumns !== 2}
+      contentContainerStyle={[
+        styles.container,
+        { gap: numColumns === 2 ? 100 : 10 },
+      ]}
+      columnWrapperStyle={numColumns === 2 && { gap: 20 }}
       showsHorizontalScrollIndicator={false}
-      ListEmptyComponent={() => <Text>No recipe found</Text>}
+      showsVerticalScrollIndicator={false}
+      ListEmptyComponent={() => (
+        <Text style={{ textAlign: 'center' }}>No recipe found</Text>
+      )}
+      numColumns={numColumns}
     />
   );
 };
