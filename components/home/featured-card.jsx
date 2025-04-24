@@ -9,20 +9,24 @@ import {
 import { trimText } from '@/lib/util';
 import { AntDesign, Entypo } from '@expo/vector-icons';
 import { colors } from '@/constant';
+import { useRouter } from 'expo-router';
 export const FeaturedCard = ({ item }) => {
   const { width } = useWindowDimensions();
-
+  const router = useRouter();
   const name = item.credits[0].name;
   const cookingTime =
     item?.cook_time_minutes ||
     item?.prep_time_minutes ||
     item?.total_time_minutes;
   const starRating = Math.round(item.user_ratings.score * 5);
-
+  const onNavigate = () => {
+    router.push(`/${item.id}`);
+  };
   return (
     <TouchableOpacity
       activeOpacity={0.5}
       style={[styles.container, { width: (width - 30) * 0.7 }]}
+      onPress={onNavigate}
     >
       <View style={styles.top}>
         <Text style={{ flex: 1 }} numberOfLines={1}>

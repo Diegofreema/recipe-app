@@ -15,6 +15,8 @@
     "app/home.jsx",
     "components/ui/search-input.jsx",
     "config.js",
-    "hooks/use-fetch-data.js"
+    "hooks/use-fetch-data.js",
+    "app/index.jsx",
+    "app/[id].jsx"
   ]
 }
