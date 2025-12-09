@@ -1,1 +1,2 @@
-export const apiKey = 'e91e1b5272msh83bedc2f51c314fp188ccbjsn5d3bfe03e985';
+export const apiKey = process.env.EXPO_PUBLIC_API_KEY;
+export const baseUrl = process.env.EXPO_PUBLIC_BASE_URL;

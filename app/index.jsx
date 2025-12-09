@@ -1,13 +1,11 @@
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
-
-import { Top } from '@/components/index/components/top';
-import { Bottom } from '@/components/index/components/bottom';
-
+import { Bottom } from '@/components/bottom';
+import { Top } from '@/components/top';
+import { ImageBackground, StyleSheet } from 'react-native';
 export default function Index() {
   return (
     <ImageBackground
-      source={require('@/assets/images/background.png')}
       style={styles.container}
+      source={require('@/assets/images/background.png')}
     >
       <Top />
       <Bottom />

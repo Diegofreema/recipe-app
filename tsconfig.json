@@ -17,6 +17,8 @@
     "config.js",
     "hooks/use-fetch-data.js",
     "app/index.jsx",
-    "app/[id].jsx"
+    "app/[id].jsx",
+    "app/_layout.jsx",
+    "utils.js"
   ]
 }
