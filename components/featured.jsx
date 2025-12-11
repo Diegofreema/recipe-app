@@ -1,10 +1,12 @@
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { Title } from './title';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { fetchData } from '../api';
+import { Title } from './title';
+import { FeaturedRecipes } from './featured-recipes';
 export const Featured = () => {
   const [fetching, setFetching] = useState(true);
   const [data, setData] = useState([]);
+
   useEffect(() => {
     const onFetchData = async () => {
       try {
@@ -30,7 +32,7 @@ export const Featured = () => {
   return (
     <View style={styles.container}>
       <Title text="Featured Recipes" />
-      <Text>{JSON.stringify(data)}</Text>
+      <FeaturedRecipes data={data} />
     </View>
   );
 };
@@ -38,5 +40,6 @@ export const Featured = () => {
 const styles = StyleSheet.create({
   container: {
     marginTop: 50,
+    gap: 60,
   },
 });
