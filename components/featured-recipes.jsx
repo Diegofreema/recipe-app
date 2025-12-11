@@ -6,8 +6,8 @@ import { RecipeFooter } from './recipe-footer';
 const { width } = Dimensions.get('window');
 
 export const FeaturedRecipes = ({ data }) => {
-  const recipe = data[0];
-  console.log(recipe.user_ratings);
+  const recipe = data[1];
+  console.log(recipe.user_ratings.score);
 
   const boxWidth = (width - 40) * 0.8;
   const recipeName = trimText(recipe.name, 15);
@@ -16,6 +16,9 @@ export const FeaturedRecipes = ({ data }) => {
       ? recipe.credits[0]?.name
       : 'Unknown';
   const totalTime = recipe?.total_time_minutes;
+  const rating = recipe.user_ratings?.score * 5;
+  console.log(rating);
+
   return (
     <View style={[styles.container, { width: boxWidth }]}>
       <Text style={styles.title}>{recipeName}</Text>
@@ -27,7 +30,7 @@ export const FeaturedRecipes = ({ data }) => {
           contentFit="cover"
         />
       </View>
-      <Ratings />
+      <Ratings rating={rating} />
       <RecipeFooter authorName={authorName} totalTime={totalTime} />
     </View>
   );
