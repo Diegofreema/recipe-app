@@ -1,6 +1,6 @@
 import { apiKey, baseUrl } from './config';
-export const fetchData = async () => {
-  const url = `${baseUrl}/recipes/list?from=0&size=20&tags=under_30_minutes`;
+export const fetchData = async (link) => {
+  const url = `${baseUrl}/${link}`;
   // GET, POST, PUT, DELETE, PATCH
   const options = {
     method: 'GET',

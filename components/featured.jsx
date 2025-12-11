@@ -1,26 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
-import { fetchData } from '../api';
-import { Title } from './title';
+import React from 'react';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { useFetch } from '../hooks/use-fetch';
 import { FeaturedRecipes } from './featured-recipes';
+import { Title } from './title';
 export const Featured = () => {
-  const [fetching, setFetching] = useState(true);
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const onFetchData = async () => {
-      try {
-        const res = await fetchData();
-
-        setData(res.results);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setFetching(false);
-      }
-    };
-    onFetchData();
-  }, []);
+  const { fetching, data } = useFetch({
+    link: 'recipes/list?from=0&size=5&tags=under_30_minutes',
+  });
 
   if (fetching) {
     return (
@@ -40,6 +26,6 @@ export const Featured = () => {
 const styles = StyleSheet.create({
   container: {
     marginTop: 50,
-    gap: 60,
+    gap: 20,
   },
 });
