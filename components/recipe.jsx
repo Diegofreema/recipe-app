@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 import { colors } from '@/constant';
-import { scaleFontSize } from '@/utils';
+import { scaleFontSize, trimText } from '@/utils';
 import { Image } from 'expo-image';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 const { width } = Dimensions.get('window');
@@ -14,9 +14,10 @@ export const Recipe = ({ recipe }) => {
           source={recipe.thumbnail_url}
           placeholder={require('@/assets/images/food.png')}
           contentFit="cover"
+          placeholderContentFit="cover"
         />
       </View>
-      <Text style={styles.text}>{recipe.name}</Text>
+      <Text style={styles.text}>{trimText(recipe.name, 20)}</Text>
       <View style={styles.timeContainer}>
         <Text style={styles.time}>Time</Text>
         <Text style={styles.duration}>{recipe?.total_time_minutes} mins</Text>
@@ -30,7 +31,7 @@ const imageSize = containerWidth * 0.7;
 const styles = StyleSheet.create({
   container: {
     width: containerWidth,
-    height: containerWidth * 1.2,
+    height: containerWidth * 1.3,
     backgroundColor: colors.grey,
     borderRadius: 15,
     paddingHorizontal: 10,
