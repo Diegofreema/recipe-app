@@ -10,7 +10,6 @@ export const FeaturedRecipes = ({ data }) => {
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => <FeaturedRecipe recipe={item} />}
       contentContainerStyle={{
-        paddingHorizontal: 20,
         gap: 15,
         paddingVertical: 35,
       }}

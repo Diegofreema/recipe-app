@@ -14,3 +14,8 @@ export const trimText = (text, length) => {
   if (text.length <= length) return text;
   return text.substring(0, length) + '...';
 };
+
+export const changesFirstLetterToUpperCase = (string) => {
+  const text = string.charAt(0).toUpperCase() + string.slice(1);
+  return text.replace(/_/g, ' ');
+};

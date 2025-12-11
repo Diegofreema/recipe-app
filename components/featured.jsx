@@ -1,7 +1,8 @@
 import React from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useFetch } from '../hooks/use-fetch';
 import { FeaturedRecipes } from './featured-recipes';
+import { Loading } from './loading';
 import { Title } from './title';
 export const Featured = () => {
   const { fetching, data } = useFetch({
@@ -9,11 +10,7 @@ export const Featured = () => {
   });
 
   if (fetching) {
-    return (
-      <View style={styles.container}>
-        <ActivityIndicator size="large" color="#0000ff" />
-      </View>
-    );
+    return <Loading />;
   }
   return (
     <View style={styles.container}>
