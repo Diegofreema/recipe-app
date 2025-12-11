@@ -18,7 +18,7 @@ export const useFetch = ({ link }) => {
       }
     };
     onFetchData();
-  }, []);
+  }, [link]);
 
   return { fetching, data };
 };

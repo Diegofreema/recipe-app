@@ -1,10 +1,15 @@
 import { Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { changesFirstLetterToUpperCase, scaleFontSize } from '@/utils';
 import { colors } from '@/constant';
-
+import { useSelectedStore } from '@/store/use-selected';
 export const CategoriesHeader = ({ categories }) => {
-  const [selected, setSelected] = useState(categories?.[0]);
+  const { selected, setSelected } = useSelectedStore();
+  useEffect(() => {
+    if (categories && categories.length > 0 && !selected) {
+      setSelected(categories[0]);
+    }
+  }, [selected, categories]);
   return (
     <FlatList
       data={categories}
