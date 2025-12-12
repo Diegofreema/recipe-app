@@ -8,7 +8,7 @@ export const Header = ({ showIcon, title }) => {
     <View style={styles.container}>
       {showIcon ? (
         <Pressable onPress={() => router.back()}>
-          <AntDesign name="arrowleft" size={25} />
+          <AntDesign name="arrow-left" size={25} />
         </Pressable>
       ) : (
         <View style={{ width: 50, height: 1 }} />

@@ -5,9 +5,9 @@ import { scaleFontSize, trimText } from '@/utils';
 import { Image } from 'expo-image';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 const { width } = Dimensions.get('window');
-export const Recipe = ({ recipe }) => {
+export const Recipe = ({ recipe, style }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}

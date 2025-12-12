@@ -1,5 +1,5 @@
 import { colors } from '@/constant';
-import { AntDesign, Feather } from '@expo/vector-icons';
+import { Feather, FontAwesome } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import {
   StyleSheet,
@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 
-export const SearchInput = ({ navigate }) => {
+export const SearchInput = ({ navigate, searchQuery, setSearchQuery }) => {
   const router = useRouter();
   const onPress = () => {
     router.push('/search');
@@ -29,7 +29,14 @@ export const SearchInput = ({ navigate }) => {
         placeholderTextColor={'black'}
         placeholder="Search Recipe"
         style={styles.input}
+        value={searchQuery}
+        onChangeText={(text) => setSearchQuery(text)}
       />
+      {searchQuery && (
+        <TouchableOpacity onPress={() => setSearchQuery('')}>
+          <Feather name="x" size={25} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

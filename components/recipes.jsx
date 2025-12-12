@@ -12,8 +12,6 @@ export const Recipes = () => {
     return <Loading />;
   }
 
-  console.log({ data });
-
   return (
     <FlatList
       data={data}

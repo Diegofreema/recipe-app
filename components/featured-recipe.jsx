@@ -15,7 +15,6 @@ export const FeaturedRecipe = ({ recipe }) => {
 
   const totalTime = recipe?.total_time_minutes;
   const rating = recipe.user_ratings?.score * 5;
-  console.log(rating);
 
   return (
     <View style={[styles.container, { width: boxWidth }]}>
