@@ -1,28 +1,29 @@
-/* eslint-disable prettier/prettier */
-
 import { colors } from '@/constant';
 import { scaleFontSize, trimText } from '@/utils';
 import { Image } from 'expo-image';
+import { Link } from 'expo-router';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 const { width } = Dimensions.get('window');
 export const Recipe = ({ recipe, style }) => {
   return (
-    <View style={[styles.container, style]}>
-      <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          source={recipe.thumbnail_url}
-          placeholder={require('@/assets/images/food.png')}
-          contentFit="cover"
-          placeholderContentFit="cover"
-        />
+    <Link href={`/${recipe.id}`}>
+      <View style={[styles.container, style]}>
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            source={recipe.thumbnail_url}
+            placeholder={require('@/assets/images/food.png')}
+            contentFit="cover"
+            placeholderContentFit="cover"
+          />
+        </View>
+        <Text style={styles.text}>{trimText(recipe.name, 20)}</Text>
+        <View style={styles.timeContainer}>
+          <Text style={styles.time}>Time</Text>
+          <Text style={styles.duration}>{recipe?.total_time_minutes} mins</Text>
+        </View>
       </View>
-      <Text style={styles.text}>{trimText(recipe.name, 20)}</Text>
-      <View style={styles.timeContainer}>
-        <Text style={styles.time}>Time</Text>
-        <Text style={styles.duration}>{recipe?.total_time_minutes} mins</Text>
-      </View>
-    </View>
+    </Link>
   );
 };
 

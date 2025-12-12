@@ -3,6 +3,7 @@ import { Image } from 'expo-image';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Ratings } from './ratings';
 import { RecipeFooter } from './recipe-footer';
+import { Link } from 'expo-router';
 const { width } = Dimensions.get('window');
 
 export const FeaturedRecipe = ({ recipe }) => {
@@ -17,22 +18,24 @@ export const FeaturedRecipe = ({ recipe }) => {
   const rating = recipe.user_ratings?.score * 5;
 
   return (
-    <View style={[styles.container, { width: boxWidth }]}>
-      <Text style={styles.title}>{recipeName}</Text>
-      <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          source={recipe.thumbnail_url}
-          placeholder={require('@/assets/images/food.png')}
-          contentFit="cover"
+    <Link href={`/${recipe.id}`}>
+      <View style={[styles.container, { width: boxWidth }]}>
+        <Text style={styles.title}>{recipeName}</Text>
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            source={recipe.thumbnail_url}
+            placeholder={require('@/assets/images/food.png')}
+            contentFit="cover"
+          />
+        </View>
+        <Ratings rating={rating} />
+        <RecipeFooter
+          authorName={authorName || 'Unknown'}
+          totalTime={totalTime}
         />
       </View>
-      <Ratings rating={rating} />
-      <RecipeFooter
-        authorName={authorName || 'Unknown'}
-        totalTime={totalTime}
-      />
-    </View>
+    </Link>
   );
 };
 const imageWidth = width * 0.25;
