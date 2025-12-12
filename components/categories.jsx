@@ -3,6 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { CategoriesHeader } from './categories-header';
 import { Loading } from './loading';
+
 import { Recipes } from './recipes';
 export const Categories = () => {
   const { fetching, data } = useFetch({

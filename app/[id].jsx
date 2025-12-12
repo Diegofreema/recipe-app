@@ -1,14 +1,14 @@
 import { Header } from '@/components/header';
 import { Wrapper } from '@/components/wrapper';
 import { useLocalSearchParams } from 'expo-router';
-import { Text } from 'react-native';
+import { RecipeDetails } from '@/components/recipe-details';
 
 const DetailsScreen = () => {
   const { id } = useLocalSearchParams();
   return (
     <Wrapper>
       <Header title={''} showIcon />
-      <Text style={{ fontSize: 30, fontWeight: 'bold' }}>{id}</Text>
+      <RecipeDetails id={id} />
     </Wrapper>
   );
 };

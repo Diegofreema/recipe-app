@@ -4,6 +4,9 @@ import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Ratings } from './ratings';
 import { RecipeFooter } from './recipe-footer';
 import { Link } from 'expo-router';
+import React from 'react';
+import { Skeleton } from 'moti/skeleton';
+import { MotiView } from 'moti';
 const { width } = Dimensions.get('window');
 
 export const FeaturedRecipe = ({ recipe }) => {
@@ -65,3 +68,22 @@ const styles = StyleSheet.create({
     height: '100%',
   },
 });
+
+export const FeaturedRecipeLoader = ({ children, loading, height }) => (
+  // <MotiView
+  //   transition={{
+  //     type: 'timing',
+  //   }}
+  //   style={[styles.container, styles.padded]}
+  //   animate={{ backgroundColor:  '#ffffff' }}
+  // >
+  <Skeleton
+    show={loading}
+    colorMode="light"
+    height={height || 300}
+    width="100%"
+  >
+    {children}
+  </Skeleton>
+  // </MotiView>
+);

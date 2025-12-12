@@ -1,4 +1,6 @@
 PODS:
+  - BVLinearGradient (2.8.3):
+    - React-Core
   - EXConstants (18.0.11):
     - ExpoModulesCore
   - Expo (54.0.28):
@@ -47,6 +49,8 @@ PODS:
     - SDWebImageSVGCoder (~> 1.7.0)
     - SDWebImageWebPCoder (~> 0.14.6)
   - ExpoKeepAwake (15.0.8):
+    - ExpoModulesCore
+  - ExpoLinearGradient (15.0.8):
     - ExpoModulesCore
   - ExpoLinking (8.0.10):
     - ExpoModulesCore
@@ -2050,6 +2054,7 @@ PODS:
   - Yoga (0.0.0)
 
 DEPENDENCIES:
+  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
   - Expo (from `../node_modules/expo`)
   - ExpoAsset (from `../node_modules/expo-asset/ios`)
@@ -2060,6 +2065,7 @@ DEPENDENCIES:
   - ExpoHead (from `../node_modules/expo-router/ios`)
   - ExpoImage (from `../node_modules/expo-image/ios`)
   - ExpoKeepAwake (from `../node_modules/expo-keep-awake/ios`)
+  - ExpoLinearGradient (from `../node_modules/expo-linear-gradient/ios`)
   - ExpoLinking (from `../node_modules/expo-linking/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
   - ExpoSplashScreen (from `../node_modules/expo-splash-screen/ios`)
@@ -2152,6 +2158,8 @@ SPEC REPOS:
     - SDWebImageWebPCoder
 
 EXTERNAL SOURCES:
+  BVLinearGradient:
+    :path: "../node_modules/react-native-linear-gradient"
   EXConstants:
     :path: "../node_modules/expo-constants/ios"
   Expo:
@@ -2172,6 +2180,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-image/ios"
   ExpoKeepAwake:
     :path: "../node_modules/expo-keep-awake/ios"
+  ExpoLinearGradient:
+    :path: "../node_modules/expo-linear-gradient/ios"
   ExpoLinking:
     :path: "../node_modules/expo-linking/ios"
   ExpoModulesCore:
@@ -2333,6 +2343,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  BVLinearGradient: 880f91a7854faff2df62518f0281afb1c60d49a3
   EXConstants: 42beb731d147822313b2340b8bb9ebe7a38a3762
   Expo: f82eee3bcdacd9c5a893c6ecb02310b029d1c313
   ExpoAsset: 315c4209dbe6f59377d3fc296ea8f483e259a830
@@ -2343,6 +2354,7 @@ SPEC CHECKSUMS:
   ExpoHead: 57ee291aeaf9a89fc4543241e25aaea0514eda61
   ExpoImage: f6bcd30bb98d4c484869668fbc32834bb3ee5bfb
   ExpoKeepAwake: 44bf6715bc1d2ddb17afe19d927cd039cda123f0
+  ExpoLinearGradient: 814a21fc4056c3cf606e4f19e31e47074c5b5a86
   ExpoLinking: 0d53100c60c39bf5f800f39839fde1e69652d4bc
   ExpoModulesCore: 351e7b1f211709444abdd466354cb0bbc8cbda76
   ExpoSplashScreen: f2ec43307fd30dd7aaa9f08449268058ed19b9f7

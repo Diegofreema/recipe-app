@@ -36,3 +36,7 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+
+# npm i moti --legacy-peer-deps
+
+# npx expo install expo-linear-gradient
