@@ -3,12 +3,13 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { Loading } from './loading';
 import { Recipe } from './recipe';
 import { scaleFontSize } from '@/utils';
+import { RecipeLoader } from './recipe-loader';
 export const SearchRecipes = ({ query }) => {
   const { fetching, data } = useFetch({
     link: `recipes/list`,
   });
   if (fetching) {
-    return <Loading />;
+    return <RecipeLoader />;
   }
   const filteredData = data.filter((item) =>
     item.name.toLowerCase().includes(query.toLowerCase())

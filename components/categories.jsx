@@ -2,7 +2,7 @@ import { useFetch } from '@/hooks/use-fetch';
 import React from 'react';
 import { View } from 'react-native';
 import { CategoriesHeader } from './categories-header';
-import { Loading } from './loading';
+import { CategoriesHeaderLoader } from './categories-header-loader';
 
 import { Recipes } from './recipes';
 export const Categories = () => {
@@ -11,7 +11,7 @@ export const Categories = () => {
   });
   const categories = data?.map((item) => item.name)?.slice(0, 8);
   if (fetching) {
-    return <Loading />;
+    return <CategoriesHeaderLoader />;
   }
 
   return (

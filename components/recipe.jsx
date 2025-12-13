@@ -27,7 +27,7 @@ export const Recipe = ({ recipe, style }) => {
   );
 };
 
-const containerWidth = (width - 50) / 2;
+const containerWidth = (width - 60) / 2;
 const imageSize = containerWidth * 0.7;
 const styles = StyleSheet.create({
   container: {

@@ -1,18 +1,20 @@
 import { useFetchSingleData } from '@/hooks/use-fetch';
 import { Image } from 'expo-image';
 import { Dimensions, ScrollView, StyleSheet, View } from 'react-native';
-import { Loading } from './loading';
+
+import { DetailsLoader } from './details-loader';
 import { Title } from './title';
 import { Nutrition } from './nutritions';
 import { Instructions } from './instructions';
 const { height } = Dimensions.get('window');
+
 export const RecipeDetails = ({ id }) => {
   const { fetching, data } = useFetchSingleData({
     link: `recipes/get-more-info?id=${id}`,
   });
 
   if (fetching) {
-    return <Loading />;
+    return <DetailsLoader />;
   }
 
   const nutritionArray = Object.entries(data.nutrition || {})

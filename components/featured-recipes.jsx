@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
 import { FeaturedRecipe } from './featured-recipe';
 
 export const FeaturedRecipes = ({ data }) => {
@@ -16,5 +16,3 @@ export const FeaturedRecipes = ({ data }) => {
     />
   );
 };
-
-const styles = StyleSheet.create({});
